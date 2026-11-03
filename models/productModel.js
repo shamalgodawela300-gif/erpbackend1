@@ -1,0 +1,54 @@
+const mongoose = require("mongoose");
+const { stringify } = require("querystring");
+
+const productSchema=mongoose.Schema({
+     name:{
+        type:String,
+        required:[true, "please add a name"],
+        trim:true
+    },
+    sku:{
+        type:String,
+        required:true,
+        default:"SKU"
+
+    },
+    category:{
+        type:String,
+        unique:true
+       
+    },
+    quantity:{
+        type:String,
+        required:[true,"please add a quantity"],
+        trim:true
+    },
+    price:{
+        type:String,
+        required:[true,"please add a price"],
+        trim:true
+    },
+    description:{
+        type:String,
+        required:[true,"please add a Category"],
+        
+    },
+    image:{
+        type:Object,
+        default:{}
+        
+    },
+    discount:{
+        type:Number
+
+    },
+
+   
+
+},{
+    timestamps:true,
+}
+);
+
+const Product=mongoose.model("Product", productSchema)
+module.exports=Product;

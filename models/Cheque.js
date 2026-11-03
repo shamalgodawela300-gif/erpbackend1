@@ -1,0 +1,38 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const ChequeSchema= new Schema({
+    invoiceNumber:{
+        type:String,
+        required:true,
+    },
+    ChequeNumber:{
+        type:String,
+        required:true,
+
+    },
+    ChequeValue:{
+        type:Number,
+        required:true,
+    },
+    DepositeDate:{
+        type:String,
+    },
+    Bankdetails:{
+        type:String,
+    },
+    BankBranch:{
+        type:String,
+        required:true,
+    },
+    status:{
+        type:String,
+        default:"Not_realized",
+    }
+    
+
+});
+
+
+const Cheque = mongoose.model("cheque",ChequeSchema);
+module.exports = Cheque;
